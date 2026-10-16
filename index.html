@@ -295,7 +295,7 @@
       top: var(--nav-h);
       z-index: 1;
       height: calc(100svh - var(--nav-h));
-      min-height: clamp(520px, calc(100svh - var(--nav-h)), 900px);
+      min-height: clamp(560px, calc(100svh - var(--nav-h)), 900px);
       max-height: 900px;
       display: grid;
       align-items: end;
@@ -310,7 +310,7 @@
         linear-gradient(180deg, var(--ivory) 0%, var(--white) 55%, var(--ivory) 100%);
       border-radius: 2.5rem 2.5rem 0 0;
       box-shadow: 0 -28px 80px rgba(12, 28, 28, 0.18);
-      margin-top: -12vh;
+      margin-top: -2.75rem;
       padding-top: calc(clamp(2.5rem, 4.5vw, 3.75rem) + 0.5rem);
       transform: translate3d(0, calc(var(--stack-lift, 0) * 1px), 0);
       will-change: transform;
@@ -347,25 +347,25 @@
       z-index: 2;
       pointer-events: none;
       background:
-        linear-gradient(180deg, rgba(250, 247, 242, 0.08) 0%, rgba(18, 36, 36, 0.2) 42%, rgba(12, 28, 28, 0.74) 100%),
-        linear-gradient(105deg, rgba(12, 28, 28, 0.55) 0%, rgba(12, 28, 28, 0.22) 50%, rgba(12, 28, 28, 0.08) 74%);
-      opacity: calc(0.92 + var(--stack-p) * 0.2);
+        linear-gradient(180deg, rgba(10, 22, 22, 0.2) 0%, rgba(10, 22, 22, 0.35) 40%, rgba(8, 18, 18, 0.82) 100%),
+        linear-gradient(105deg, rgba(8, 18, 18, 0.78) 0%, rgba(8, 18, 18, 0.42) 42%, rgba(8, 18, 18, 0.12) 72%);
+      opacity: calc(0.96 + var(--stack-p) * 0.15);
     }
     .hero-content {
       position: relative;
       z-index: 3;
       width: min(100% - 2.5rem, 620px);
       margin: 0 auto 0 max(1.25rem, calc((100% - var(--max)) / 2));
-      padding: clamp(1.5rem, 4vh, 2.75rem) 0 clamp(2.25rem, 5.5vh, 3.75rem);
+      padding: clamp(1.5rem, 4vh, 2.75rem) 0 clamp(4.5rem, 10vh, 6.5rem);
       max-width: 560px;
       transform:
         translate3d(
           calc(var(--mx, 0px) * -0.12),
-          calc(var(--my, 0px) * -0.08 + var(--stack-p) * -36px),
+          calc(var(--my, 0px) * -0.08 + var(--stack-p) * -24px),
           0
         )
-        scale(calc(1 - var(--stack-p) * 0.05));
-      opacity: calc(1 - var(--stack-p) * 1.15);
+        scale(calc(1 - var(--stack-p) * 0.04));
+      opacity: calc(1 - var(--stack-p) * 1.05);
       transition: transform 0.2s ease-out, opacity 0.2s ease-out;
       will-change: transform, opacity;
       pointer-events: auto;
@@ -390,11 +390,12 @@
       text-shadow: 0 1px 18px rgba(8, 24, 24, 0.3);
     }
     .hero-lead {
-      color: rgba(255, 255, 255, 0.86);
+      color: rgba(255, 255, 255, 0.92);
       font-size: clamp(0.95rem, 1.4vw, 1.05rem);
       max-width: 38ch;
       line-height: 1.55;
       margin-bottom: 1.35rem;
+      text-shadow: 0 1px 16px rgba(8, 18, 18, 0.45);
     }
     .hero-actions {
       display: flex;
@@ -2079,13 +2080,14 @@
         height: calc(100svh - var(--nav-h));
       }
       .stack-panel {
-        margin-top: -8vh;
+        margin-top: -1.75rem;
         border-radius: 1.75rem 1.75rem 0 0;
       }
       .hero-content {
         width: min(100% - 2rem, 100%);
         margin-left: 1rem;
         margin-right: 1rem;
+        padding-bottom: clamp(4rem, 12vh, 5.5rem);
       }
     }
 
@@ -2228,7 +2230,7 @@
       .why-copy { padding: 0.85rem 0.95rem; }
       .why-copy p { -webkit-line-clamp: 2; font-size: 0.84rem; }
       .about-visual { aspect-ratio: 16 / 11; max-height: 380px; }
-      .hero-content { padding-bottom: 3.5rem; }
+      .hero-content { padding-bottom: 4.5rem; }
       .faq-item .answer-inner p { padding-left: 1.2rem; }
       .loc-grid { grid-template-columns: 1fr 1fr; }
     }
@@ -3113,7 +3115,7 @@
           /* 0 = about still below fold, 1 = about fully covering hero */
           var progress = clamp(1 - aboutTop / (vh * 0.85), 0, 1);
           hero.style.setProperty("--stack-p", progress.toFixed(4));
-          about.style.setProperty("--stack-lift", ((1 - progress) * 36).toFixed(1));
+          about.style.setProperty("--stack-lift", ((1 - progress) * 18).toFixed(1));
           hero.classList.toggle("is-stacked", progress > 0.55);
         }
 
